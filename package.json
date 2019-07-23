@@ -1,0 +1,68 @@
+{
+	"name": "insert-filename",
+	"displayName": "Insert Filename",
+	"description": "Insert filename for VS Code",
+	"version": "0.0.2",
+	"publisher": "kaffa",
+	"repository": "https://github.com/kaffa/vscode-insert-filename",
+	"engines": {
+		"vscode": "^1.34.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.insertFilename",
+		"onView:insertFilename"
+	],
+	"views": {
+		"insertFilename": [
+			{
+				"id": "insertFilename",
+				"name": "insertFilename"
+			}
+		]
+	},
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.insertFilename",
+				"title": "Insert Filename"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "extension.insertFilename",
+					"group": "extension@1"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "extension.insertFilename",
+				"key": "ctrl+alt+i",
+				"mac": "shift+cmd+i",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "tslint -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^8.10.25",
+		"@types/vscode": "^1.34.0",
+		"tslint": "^5.16.0",
+		"typescript": "^3.5.1"
+	},
+	"keywords": [
+		"insert-filename",
+		"filename"
+	],
+	"license": "MIT"
+}
